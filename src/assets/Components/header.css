@@ -1,0 +1,20 @@
+.headerSyle{
+    background-color:rgb(242, 242, 245);
+    padding:1%;
+    text-align:center;
+    border-bottom:2px solid grey;
+    position: fixed;
+    width: 100%;
+    height: 10%;
+}
+.titleSyle{
+    margin: 0;
+    font-size:330%;
+    color: #b64f56;
+}
+.titleSyle:hover{
+    font-size: 40px;
+    transition: 0.5s;
+}
+
+
