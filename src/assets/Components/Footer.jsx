@@ -1,8 +1,9 @@
 import "./footer.css"
+
+// Funcao que retorna um arquivo JSX, no caso, o Footer
 const Footer = () =>{
     return(
         <>
-
         <footer>
             <h1>Dúvidas</h1>
             <h2>Entre em contato</h2>

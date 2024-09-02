@@ -1,8 +1,10 @@
 import { useState } from "react";
 import "./form.css";
+
+// Funcao que retorna um arquivo JSX, no caso, o form
 const form = () =>{
 
-    // estado inicial do formulario
+    // estado inicial do formulario, com seus 3 campos de sua escolha
     const initilForm = {
         nome: "",
         email:"",
@@ -13,7 +15,6 @@ const form = () =>{
     const [formState, setFormState] = useState(initilForm);
 
     //Funcao para lidar com alteracao dos campos de entrada
-
     const handleInput = (event) => {
 
         // obter o valor e o nome do campo de entrada
@@ -21,14 +22,19 @@ const form = () =>{
 
         // extrair o valor e o nome do campo de entrada
         const {value, name, email, plano} = target;
+        
 
         // atualizar o estado do formulario com os novos valores
         setFormState({...formState, [name]: value, [email]: value, [plano]: value})
     }
 
-    // Funçao para lidar com a submissao do formulario
-
+    // Funçao para lidar com o formulario, como validacao, listar no console e 
+    // limpar o formulario apos preencher os campos.
     const handleSubmit = (event) => {
+        if(!formState.nome || !formState.email || !formState.plano) {
+            alert("Preencha todos os campos!")
+            return;
+        }
         event.preventDefault()
         console.log(formState.nome, formState.email, formState.plano)
 
@@ -38,7 +44,7 @@ const form = () =>{
         
     }
 
-    // Retorna o formulario
+    // funcao para retornar o formulario
     return(
         <div className="container">
              <div className="containerForm">

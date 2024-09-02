@@ -1,8 +1,9 @@
 import "./card.css";
-// Uma constante
+
+// Funcao que retorna um arquivo JSX, no caso, o Card
 const Card = () => {
 
-    // Listando os card
+    // Listando os card, de acordo com os parametros
   const cardPlano = [
     {
       titulo: "Plano Vermelho",
@@ -30,6 +31,7 @@ const Card = () => {
     },
   ];
 
+  // Funcao para retornar os cards de acordo com a posicao e os parametros que esta acima
   return (
     <div className="card-container">
 
