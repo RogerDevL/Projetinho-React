@@ -31,12 +31,38 @@ const form = () =>{
     // Funçao para lidar com o formulario, como validacao, listar no console e 
     // limpar o formulario apos preencher os campos.
     const handleSubmit = (event) => {
+        event.preventDefault();
+        
+        // validacao dos campos
         if(!formState.nome || !formState.email || !formState.plano) {
             alert("Preencha todos os campos!")
             return;
         }
+    
+         // lista dos planos 
+        const planos = [ "Tricolor","tricolor","branco", "Branco", "preto", "Preto", "vermelho", "Vermelho" ];
+        // verifica se o plano escolhido é existente
+        if(!planos.includes(formState.plano)){
+            alert("Escolha um plano valido!")
+            return;
+        }
+        
+        // validacao dos nomes
+        if (!/^[a-zA-ZáÁéÉíÍóÓúÚñÑçÇ ]+$/.test(formState.nome.trim())) {
+            alert("O campo nome deve conter apenas letras e espaços!");
+            return;
+          }
+          
+        // validacao do email
+        if (!/\S+@\S+\.\S+/.test(formState.email.trim())) {
+            alert("O campo email deve conter um endereço de email válido!");
+            return;
+         }
+
+
+
         event.preventDefault()
-        console.log(formState.nome, formState.email, formState.plano)
+        console.log("nome:", formState.nome, ",", "email:", formState.email, ",", "plano:", formState.plano)
 
         // limpar o formulario
         setFormState({...initilForm})
